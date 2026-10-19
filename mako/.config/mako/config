@@ -1,0 +1,19 @@
+# Catppuccin Mocha, mauve accent
+font=JetBrainsMono Nerd Font 10
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#cba6f7
+progress-color=over #313244
+border-size=2
+border-radius=10
+padding=10
+margin=10
+max-visible=5
+
+# Disappear after 5 seconds (milliseconds)
+default-timeout=5000
+
+# Urgent notifications (e.g. low battery) stay until clicked, with a peach border
+[urgency=high]
+border-color=#fab387
+default-timeout=0
