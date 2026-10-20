@@ -107,6 +107,19 @@ color: @green;
 padding: 0 8px;
 }
 
+#custom-launcher {
+color: @blue;
+font-size: 16px;
+}
+
+#custom-close {
+color: @overlay0;
+}
+
+#custom-close:hover {
+color: @red;
+}
+
 tooltip {
     background: alpha(@base, 0.95);
     border: 1px solid @mauve;

@@ -180,6 +180,8 @@ hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 2, bezier = "easeOutQuint" })
+
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
@@ -325,9 +327,9 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
--- Screenshots: Super+Shift+S = region to clipboard, Super+Shift+A = region into satty to annotate/save
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('pidof slurp || grim -g "$(slurp -b 1e1e2e88 -c cba6f7ff -w 2)" - | wl-copy'))
-hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd('pidof slurp || grim -g "$(slurp -b 1e1e2e88 -c cba6f7ff -w 2)" - | satty --filename -'))
+-- Screenshots with frozen screen: Super+Shift+S = region to clipboard, Super+Shift+A = region into satty
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.config/hypr/scripts/snip.sh copy"))
+hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("~/.config/hypr/scripts/snip.sh annotate"))
 
 -- Super+Shift+D = full screenshot after 2s (open a menu/popup in the meantime) -> clipboard
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd('sleep 2 && grim - | wl-copy && notify-send "Screenshot copied"'))
@@ -383,4 +385,11 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+-- Discord's startup splash opens on workspace 5 without switching there
+hl.window_rule({
+    name  = "discord-splash",
+    match = { class = "^(discord)$", title = "^(Discord)$" },
+               workspace = "5 silent",
 })

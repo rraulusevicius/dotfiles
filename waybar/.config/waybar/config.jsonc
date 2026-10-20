@@ -8,7 +8,7 @@
     "spacing": 6,
     "reload_style_on_change": true,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window", "custom/close"],
     "modules-center": ["clock"],
     "modules-right": [
         "custom/keyboard",
@@ -110,5 +110,18 @@
         "format": "",
         "tooltip": false,
         "on-click": "~/.config/waybar/power-menu.sh"
+    },
+
+        "custom/launcher": {
+        "format": "󰣇",
+        "tooltip-format": "Apps",
+        // Toggle: closes fuzzel if it's open, opens it if not
+        "on-click": "pkill fuzzel || fuzzel"
+    },
+
+    "custom/close": {
+        "format": "󰅖",
+        "tooltip-format": "Close window",
+        "on-click": "hyprctl dispatch 'hl.dsp.window.close()'"
     }
 }
