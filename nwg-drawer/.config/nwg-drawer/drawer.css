@@ -1,0 +1,72 @@
+/* Catppuccin Mocha, mauve accent */
+@define-color base     #1e1e2e;
+@define-color surface0 #313244;
+@define-color surface1 #45475a;
+@define-color overlay0 #6c7086;
+@define-color text     #cdd6f4;
+@define-color mauve    #cba6f7;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+}
+
+window {
+    background-color: alpha(@base, 0.95);
+    color: @text;
+    border: 2px solid @mauve;
+}
+
+/* search entry */
+entry {
+    background-color: @surface0;
+    color: @text;
+    caret-color: @mauve;
+    border: 1px solid @surface1;
+    border-radius: 10px;
+    padding: 4px 8px;
+}
+
+entry:focus {
+    border-color: @mauve;
+}
+
+button, image {
+    background: none;
+    border: none;
+    color: @text;
+}
+
+button {
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: alpha(@surface1, 0.6);
+}
+
+/* keyboard selection (arrow keys / Tab) */
+button:focus {
+    background-color: alpha(@mauve, 0.15);
+}
+
+#category-button {
+margin: 0 10px 0 10px;
+}
+
+#pinned-box {
+padding-bottom: 5px;
+border-bottom: 1px solid @surface1;
+}
+
+#files-box {
+padding: 5px;
+border: 1px solid @surface1;
+border-radius: 15px;
+}
+
+/* math operation result label */
+#math-label {
+font-weight: bold;
+font-size: 16px;
+color: @mauve;
+}

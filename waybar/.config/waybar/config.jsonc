@@ -115,8 +115,8 @@
         "custom/launcher": {
         "format": "󰣇",
         "tooltip-format": "Apps",
-        // Toggle: closes fuzzel if it's open, opens it if not
-        "on-click": "pkill fuzzel || fuzzel"
+        // Toggle: closes nwg-drawer if it's open, opens it if not
+        "on-click": "pkill nwg-drawer || nwg-drawer -mt 150 -mb 150 -ml 450 -mr 450 -c 5 -is 48"
     },
 
     "custom/close": {

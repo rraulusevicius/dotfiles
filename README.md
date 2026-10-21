@@ -10,8 +10,9 @@ Managed with GNU Stow: each folder is a "package" that mirrors where its files l
   - `scripts/snip.sh` - region screenshot that freezes the screen while you select, like the Windows Snipping Tool. Copies to clipboard or opens in satty to annotate.
   - Window rule that opens Discord's startup splash on workspace 5 so it doesn't jump over other windows.
   - Window resize animation shortened to 0.2 s so apps don't lag behind it.
-- **waybar** - the top bar. Arch logo button that opens the app launcher, workspaces 1-5, focused window title with a close button, clock, keyboard layout, volume, brightness, Wi-Fi, power profile, CPU, temperature, battery, tray and a power menu.
-- **fuzzel** - app launcher (Super+R), also used by the power menu.
+- **waybar** - the top bar. Arch logo button that opens the app grid, workspaces 1-5, focused window title with a close button, clock, keyboard layout, volume, brightness, Wi-Fi, power profile, CPU, temperature, battery, tray and a power menu.
+- **fuzzel** - keyboard app launcher (Super+R), also used by the power menu. Searches app descriptions too, so typing "files" finds Dolphin.
+- **nwg-drawer** - mouse-friendly app grid, opened from the Waybar Arch button. Fuzzel's mouse wheel scrolling is unreliable, so this covers the mouse side.
 - **mako** - notifications. They disappear after 5 seconds, urgent ones stay until clicked.
 - **kitty** - terminal.
 - **starship** - shell prompt.
@@ -41,18 +42,18 @@ Managed with GNU Stow: each folder is a "package" that mirrors where its files l
 
 ## Autostart
 
-Polkit agent, Waybar, nm-applet, hypridle, hyprpaper, Discord (minimised to tray), and two dashboard kitty windows with fastfetch and btop.
+Polkit agent, Waybar, nm-applet, hypridle, hyprpaper, Vesktop (minimised to tray), and two dashboard kitty windows with fastfetch and btop.
 
 ## Packages it expects
 
-hyprland, hyprlock, hypridle, hyprpaper, hyprpicker, waybar-git (AUR, needed for clickable workspaces with the Lua config), fuzzel, mako, kitty, starship, btop, fastfetch, grim, slurp, wl-clipboard, satty, network-manager-applet, brightnessctl, pavucontrol, ttf-jetbrains-mono-nerd, stow.
+hyprland, hyprlock, hypridle, hyprpaper, hyprpicker, waybar-git (AUR, needed for clickable workspaces with the Lua config), fuzzel, nwg-drawer, mako, kitty, starship, btop, fastfetch, grim, slurp, wl-clipboard, satty, network-manager-applet, brightnessctl, pavucontrol, ttf-jetbrains-mono-nerd, vesktop (AUR), stow.
 
 ## Install
 
 ```
 git clone git@github.com:rraulusevicius/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow bash btop fuzzel hypr kitty mako starship waybar
+stow bash btop fuzzel hypr kitty mako nwg-drawer starship waybar
 ```
 
 Stow won't overwrite files that already exist, so move or delete the default ones first (like `~/.bashrc`).
@@ -61,4 +62,5 @@ Stow won't overwrite files that already exist, so move or delete the default one
 
 - The wallpaper.
 - GTK/KDE theme, icon theme (breeze-dark) and the Catppuccin cursor. These are set with `gsettings` and KDE's settings rather than files in this repo.
+- Vesktop's theme. It's the Catppuccin Mocha (mauve) online theme, added in Vesktop's own settings.
 - Anything secret. Tokens and API keys go in a separate file that isn't tracked.
